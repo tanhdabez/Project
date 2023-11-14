@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.EntityFrameworkCore;
 using Project.DBConxtext;
 using Project.Models;
 using System.Runtime.InteropServices;
@@ -134,7 +135,10 @@ namespace Project.Services
                 TienThuaKyTruoc = 0,
                 ThanhTienThucTe = 0
             };
-            //:)
+            var hc_lop = DbSet.LopHoc.AsNoTracking().FirstOrDefault(x => x.Id == IdLop);
+            var hc_nha = DbSet.PhongHoc.AsNoTracking().FirstOrDefault(x => x.MaPhongHoc == "Tai Nha");
+            var donGia = DbSet.ListDonGia.AsNoTracking().FirstOrDefault(x => hc_lop.IdGVien == x.IdGVien && hc_lop.IdMonHoc == x.IdMonHoc);
+
         }
     }
 }
