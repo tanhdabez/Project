@@ -10,16 +10,12 @@ namespace Project.Models
         public string Id { get; set; }
         public string? MaLopHoc { get; set; }
         public DateTime NgayBatDau { get; set; }
-        [MaxLength(36)]
         public string? IdGVien { get; set; }
-        [MaxLength(36)]
         public string? IdHocVien { get; set; }
-        [MaxLength(36)]
         public string? IdMonHoc { get; set; }
-        [MaxLength(36)]
         public string? IdPhongHoc { get; set; }
         public string? IdCaHoc { get; set; }
-        [MaxLength(36)]
+        public double? SoHocVien { get; set; }
         public string? TrangThai { get; set; }
 
         [NotMapped]
@@ -39,5 +35,10 @@ namespace Project.Models
         public double TienThuaKyTruoc { get; set; }
         public double ThanhTienThucTe { get; set; }
 
+    }
+    public class Lop_Thu
+    {
+        public string Thu { get; set; }
+        public int Lan { get; set; }
     }
 }

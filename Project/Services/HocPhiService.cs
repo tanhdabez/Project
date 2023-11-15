@@ -1,10 +1,6 @@
-﻿using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Project.DBConxtext;
 using Project.Models;
-using System.Runtime.InteropServices;
-using System.Security.Cryptography.Xml;
-using System.Text;
 
 namespace Project.Services
 {
@@ -135,10 +131,26 @@ namespace Project.Services
                 TienThuaKyTruoc = 0,
                 ThanhTienThucTe = 0
             };
+            var listLop_Thu = DbSet.ListLichHoc.AsNoTracking().Where(x => x.Id == IdLop).ToList();
             var hc_lop = DbSet.LopHoc.AsNoTracking().FirstOrDefault(x => x.Id == IdLop);
             var hc_nha = DbSet.PhongHoc.AsNoTracking().FirstOrDefault(x => x.MaPhongHoc == "Tai Nha");
             var donGia = DbSet.ListDonGia.AsNoTracking().FirstOrDefault(x => hc_lop.IdGVien == x.IdGVien && hc_lop.IdMonHoc == x.IdMonHoc);
-
+            if (listLop_Thu != null && listLop_Thu.Count > 0)
+            {
+                List<int> listThu = listLop_Thu.Select(a => a.Thu ?? 0).Distinct().ToList();
+                List<Lop_Thu> listCheck = new List<Lop_Thu>();
+                foreach (var item in listThu)
+                {
+                    Lop_Thu class_thu = new Lop_Thu();
+                    class_thu.Thu = Definedata.QuyDoiThu(item);
+                    class_thu.Lan = listLop_Thu.Where(a => a.Thu == item).Count();
+                    listCheck.Add(class_thu);
+                }
+                double hocPhi = listLop_Thu.FirstOrDefault().HocPhi ?? 0;
+                double hocPhiKyTruoc = hocPhi;
+                hocPhi = (double)(hocPhi / hc_lop.SoHocVien);
+            }
+            
         }
     }
 }
