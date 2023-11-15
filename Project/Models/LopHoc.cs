@@ -18,7 +18,6 @@ namespace Project.Models
         public string? IdMonHoc { get; set; }
         [MaxLength(36)]
         public string? IdPhongHoc { get; set; }
-        [MaxLength(36)]
         public string? IdCaHoc { get; set; }
         [MaxLength(36)]
         public string? TrangThai { get; set; }
