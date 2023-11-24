@@ -150,7 +150,7 @@ namespace Project.Services
                 double hocPhiKyTruoc = hocPhi;
                 hocPhi = (double)(hocPhi / hc_lop.SoHocVien);
             }
-            
+            return sbcl;
         }
     }
 }

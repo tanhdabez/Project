@@ -127,6 +127,7 @@ namespace Project.Services
                                 tkbAdd.IdPhongHoc = itemlophoc.IdPhongHoc;
                                 tkbAdd.IdMonHoc = itemlophoc.IdMonHoc;
                                 tkbAdd.NgayHoc = time;
+                                tkbAdd.HocPhi = itemlichhoc.HocPhi;
                                 listThoiKhoaBieu.Add(tkbAdd);
                             }
                             time = time.AddDays(1);

@@ -9,20 +9,14 @@ namespace Project.Models
         [MaxLength(36)]
         public string Id { get; set; }
         public DateTime NgayHoc { get; set; }
-        [MaxLength(36)]
         public string? IdLop { get; set; }
 
-        [MaxLength(36)]
         public string? IdGVien { get; set; }
 
-        [MaxLength(36)]
         public string? IdCaHoc { get; set; }
-        [MaxLength(36)]
         public string? IdPhongHoc { get; set; }
-
-        [MaxLength(36)]
         public string? IdMonHoc { get; set; }
-        [MaxLength(36)]
+        public double? HocPhi { get; set; }
         public string? TrangThai { get; set; }
 
         [NotMapped]

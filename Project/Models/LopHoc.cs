@@ -27,6 +27,21 @@ namespace Project.Models
         [NotMapped]
         public List<ListLichHoc> ListLichHocs { get; set; }
     }
+    public class ListLichHoc
+    {
+        [Key]
+        [MaxLength(36)]
+        public string Id { get; set; }
+        public string? IdLopHoc { get; set; }
+        public string? IdGVien { get; set; }
+        public string? IdMonHoc { get; set; }
+        public string? IdCaHoc { get; set; }
+        public string? IdPhongHoc { get; set; }
+        public int? Thu { get; set; }
+        public double? HocPhi { get; set; }
+        public double? GioBatDau { get; set; }
+        public double? GioKetThuc { get; set; }
+    }
     public class Lop_SoBuoiConLai
     {
         public int SobuoiDuKien { get; set; }

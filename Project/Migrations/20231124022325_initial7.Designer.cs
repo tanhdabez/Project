@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project.DBConxtext;
 
@@ -11,9 +12,10 @@ using Project.DBConxtext;
 namespace Project.Migrations
 {
     [DbContext(typeof(DbSet))]
-    partial class DbSetModelSnapshot : ModelSnapshot
+    [Migration("20231124022325_initial7")]
+    partial class initial7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -427,8 +429,8 @@ namespace Project.Migrations
                     b.Property<double?>("GioKetThuc")
                         .HasColumnType("float");
 
-                    b.Property<double?>("HocPhi")
-                        .HasColumnType("float");
+                    b.Property<int?>("HocPhi")
+                        .HasColumnType("int");
 
                     b.Property<string>("IdCaHoc")
                         .HasColumnType("nvarchar(max)");
@@ -550,29 +552,32 @@ namespace Project.Migrations
                         .HasMaxLength(36)
                         .HasColumnType("nvarchar(36)");
 
-                    b.Property<double?>("HocPhi")
-                        .HasColumnType("float");
-
                     b.Property<string>("IdCaHoc")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.Property<string>("IdGVien")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.Property<string>("IdLop")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.Property<string>("IdMonHoc")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.Property<string>("IdPhongHoc")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.Property<DateTime>("NgayHoc")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("TrangThai")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(36)
+                        .HasColumnType("nvarchar(36)");
 
                     b.HasKey("Id");
 
